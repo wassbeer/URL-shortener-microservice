@@ -1,7 +1,7 @@
 // depencies and modules
 const express = require('express'),
 	router = express.Router(),
-	db = require('./../db');
+	db = require('./../lib/db');
 
 // providing shortened url
 router.get('/:shortenedurl', (req, res) => {
@@ -14,5 +14,13 @@ router.get('/:shortenedurl', (req, res) => {
 			res.json({ 'shortened url': 'does not exist' }); // if not found, send "does not exist" message
 	});
 });
+
+// homepage
+router.get('/', (req, res) => {
+	res.json ({
+		"please provide a new URL at": "/new/<new-url>",
+		"or visit a shortened url at": "/<shortened-url>"
+	});
+})
 
 module.exports = router;

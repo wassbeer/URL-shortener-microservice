@@ -1,15 +1,17 @@
 // modules and dependencies
 const express = require('express'),
-	db = require('./db'),
+	db = require('./lib/db'),
 	favicon = require('serve-favicon'),
 	path = require('path'),
+	logger = require('morgan'),
 
 	// application
 	app = express(),
 	port = 3000;
 
-// avoiding req.url === favicon.io
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// middleware setup
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));  // avoiding req.url === favicon.io
+app.use(logger('dev'));
 
 // database
 db.connect((err) => { // connecting to mlab database
@@ -24,4 +26,5 @@ db.connect((err) => { // connecting to mlab database
 // Routes
 app.use(require('./controllers'));
 
+// Exports
 module.exports = app;

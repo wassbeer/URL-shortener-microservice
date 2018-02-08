@@ -14,3 +14,4 @@ This application takes in an original url and returns a shortened version. Upon 
 * npm i
 * configure MONGO_URL environment variable
 * node app.js && provide a new url @localhost:3000/new/:url
+* visit the shortened url!

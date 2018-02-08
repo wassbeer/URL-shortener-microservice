@@ -2,7 +2,7 @@
 const uniqid = require('uniqid'),
 	express = require('express'),
 	router = express.Router(),
-	db = require('./../db');
+	db = require('./../lib/db');
 
 // variables
 let originalUrl,
